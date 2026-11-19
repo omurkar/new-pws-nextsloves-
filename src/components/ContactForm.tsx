@@ -18,13 +18,16 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [serverErrorMessage, setServerErrorMessage] = useState<string>('');
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = 'Please enter your name';
     if (!formData.institution.trim()) newErrors.institution = 'Please enter your college/institution';
     if (!formData.designation.trim()) newErrors.designation = 'Please enter your designation';
-    if (formData.email.trim() && !/^\S+@\S+\.\S+$/.test(formData.email)) {
+    if (!formData.email.trim()) {
+      newErrors.email = 'Please enter your institutional email';
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
     if (formData.phone.trim() && !/^[0-9]{10}$/.test(formData.phone)) {
@@ -42,9 +45,22 @@ export default function ContactForm() {
       return;
     }
     setErrors({});
+    setServerErrorMessage('');
     setStatus('submitting');
 
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit demo request.');
+      }
+
       setStatus('success');
       setFormData({
         name: '',
@@ -55,7 +71,10 @@ export default function ContactForm() {
         students: '',
         message: '',
       });
-    }, 700);
+    } catch (err: any) {
+      setServerErrorMessage(err?.message || 'Something went wrong. Please try again.');
+      setStatus('error');
+    }
   };
 
   return (
@@ -82,6 +101,11 @@ export default function ContactForm() {
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
+          {status === 'error' && serverErrorMessage && (
+            <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+              {serverErrorMessage}
+            </div>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Name */}
             <div>

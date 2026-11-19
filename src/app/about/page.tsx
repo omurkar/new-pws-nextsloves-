@@ -84,44 +84,132 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-              {/* Jagruti */}
-              <div className="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-                <div className="relative w-32 h-40 sm:w-36 sm:h-44 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200">
-                  <Image
-                    src="/assets/team/jagruti-morvekar.jpeg"
-                    alt="Jagruti Morvekar — Founder"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="text-center sm:text-left min-w-0">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider">Founder</span>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">Jagruti Morvekar</h3>
-                  <p className="text-xs text-slate-500 font-medium">NextSolves Founder</p>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
-                    Passionate about architecting practical, zero-paper workflow platforms that solve real operational bottlenecks in Indian collegiate systems.
-                  </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Jagruti Morvekar */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 mb-6">
+                    <div className="relative w-32 h-40 sm:w-36 sm:h-44 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200 shadow-sm">
+                      <Image
+                        src="/assets/team/jagruti-morvekar.jpeg"
+                        alt="Jagruti Morvekar — Co-Founder"
+                        fill
+                        sizes="(max-width: 640px) 128px, 144px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <div className="text-center sm:text-left min-w-0">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                        Co-Founder
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-2">
+                        Jagruti Morvekar
+                      </h3>
+                      <p className="text-xs sm:text-sm font-semibold text-slate-600 mt-0.5">
+                        Systems Architecture & Operational Strategy
+                      </p>
+                      <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                        Co-architect of NextSolves PWS, steering the foundational convergence between distributed database architecture, real-time exam telemetry, and zero-paper institutional logistics. Directed continuous rollouts across 2,500+ active students with 100% operational uptime.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Pillars: Technical, Operational, Execution */}
+                  <div className="space-y-2.5 pt-4 border-t border-slate-100 text-xs">
+                    <div className="bg-slate-50/80 rounded-xl p-3 border border-slate-200/70">
+                      <div className="font-bold text-slate-900 flex items-center gap-1.5 mb-1">
+                        <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                        Technical Architecture
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">
+                        Full-stack systems design, asynchronous state synchronization, and zero-latency digital question distribution engines.
+                      </p>
+                    </div>
+
+                    <div className="bg-slate-50/80 rounded-xl p-3 border border-slate-200/70">
+                      <div className="font-bold text-slate-900 flex items-center gap-1.5 mb-1">
+                        <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                        Operational Scaling
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">
+                        Institutional stakeholder alignment, examination council compliance, and academic lab workflow modernization.
+                      </p>
+                    </div>
+
+                    <div className="bg-slate-50/80 rounded-xl p-3 border border-slate-200/70">
+                      <div className="font-bold text-slate-900 flex items-center gap-1.5 mb-1">
+                        <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                        Execution Excellence
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">
+                        Proven on-ground delivery across multi-batch semester examination cycles and automated real-time grading pipelines.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Om */}
-              <div className="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-                <div className="relative w-32 h-40 sm:w-36 sm:h-44 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200">
-                  <Image
-                    src="/assets/team/om-murkar.jpeg"
-                    alt="Om Murkar — Founder"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="text-center sm:text-left min-w-0">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider">Founder</span>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">Om Murkar</h3>
-                  <p className="text-xs text-slate-500 font-medium">NextSolves Founder</p>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
-                    Dedicated to developing secure, locked exam environments and streamlined data pipelines that empower teachers and administrators.
-                  </p>
+              {/* Om Murkar */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 mb-6">
+                    <div className="relative w-32 h-40 sm:w-36 sm:h-44 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200 shadow-sm">
+                      <Image
+                        src="/assets/team/om-murkar.jpeg"
+                        alt="Om Murkar — Co-Founder"
+                        fill
+                        sizes="(max-width: 640px) 128px, 144px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <div className="text-center sm:text-left min-w-0">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                        Co-Founder
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-2">
+                        Om Murkar
+                      </h3>
+                      <p className="text-xs sm:text-sm font-semibold text-slate-600 mt-0.5">
+                        Core Engineering & Execution Infrastructure
+                      </p>
+                      <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                        Co-architect of NextSolves PWS, engineering secure examination environments, locked kiosk proctoring protocols, and automated evaluation engines. Spearheaded the technical implementation and operational rollout eliminating paper examination overhead.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Pillars: Technical, Operational, Execution */}
+                  <div className="space-y-2.5 pt-4 border-t border-slate-100 text-xs">
+                    <div className="bg-slate-50/80 rounded-xl p-3 border border-slate-200/70">
+                      <div className="font-bold text-slate-900 flex items-center gap-1.5 mb-1">
+                        <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                        Technical Architecture
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">
+                        Safe Exam Browser enforcement, client-side sandbox isolation, and real-time live heartbeat surveillance protocols.
+                      </p>
+                    </div>
+
+                    <div className="bg-slate-50/80 rounded-xl p-3 border border-slate-200/70">
+                      <div className="font-bold text-slate-900 flex items-center gap-1.5 mb-1">
+                        <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                        Operational Scaling
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">
+                        Rapid lab infrastructure provisioning, high-concurrency batch orchestration, and fail-safe exam recovery mechanisms.
+                      </p>
+                    </div>
+
+                    <div className="bg-slate-50/80 rounded-xl p-3 border border-slate-200/70">
+                      <div className="font-bold text-slate-900 flex items-center gap-1.5 mb-1">
+                        <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                        Execution Excellence
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">
+                        Precision execution in live high-stakes collegiate lab sessions, driving measurable cost reduction and instant result publication.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

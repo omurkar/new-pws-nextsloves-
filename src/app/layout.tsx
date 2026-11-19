@@ -61,6 +61,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -69,8 +77,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} ${jetbrainsMono.variable} scroll-smooth`} data-scroll-behavior="smooth">
-      <body className="antialiased">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${plusJakarta.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
+    >
+      <body className="antialiased" suppressHydrationWarning>
         <SplashScreen indicator="progress" reveal="curtain" duration={1.8} />
         <SmoothScroll>{children}</SmoothScroll>
       </body>

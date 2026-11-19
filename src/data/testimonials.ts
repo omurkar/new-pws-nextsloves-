@@ -71,7 +71,7 @@ export const testimonials: Testimonial[] = [
     name: 'Dr. G.D. Giri',
     designation: 'Principal',
     institution: 'Thakur Shyamnarayan Degree College',
-    image: '/assets/team/dr-gd-giri.png',
+    image: '/assets/team/dr-gd-giri.jpg',
   },
 ];
 

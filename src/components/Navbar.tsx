@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Briefcase } from 'lucide-react';
 import { navigation } from '@/data/navigation';
 import { Button } from '@/components/ui/button';
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
@@ -72,49 +72,80 @@ export default function Navbar() {
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-1">
-          {navigation.map((item) => (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => item.children && setOpenDropdown(item.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <Link
-                href={item.href}
-                className="flex items-center gap-1 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-full transition-colors cursor-pointer"
+          {navigation.map((item) => {
+            const isExternal = item.href.startsWith('http');
+            return (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                {item.label}
-                {item.children && (
-                  <ChevronDown
-                    className={`w-3 h-3 text-slate-400 transition-transform ${
-                      openDropdown === item.label ? 'rotate-180 text-primary' : ''
-                    }`}
-                  />
+                {isExternal ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-full transition-colors cursor-pointer"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-1 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-full transition-colors cursor-pointer"
+                  >
+                    {item.label}
+                    {item.children && (
+                      <ChevronDown
+                        className={`w-3 h-3 text-slate-400 transition-transform ${
+                          openDropdown === item.label ? 'rotate-180 text-primary' : ''
+                        }`}
+                      />
+                    )}
+                  </Link>
                 )}
-              </Link>
 
-              {/* Clean Desktop Dropdown */}
-              {item.children && openDropdown === item.label && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48">
-                  <div className="bg-white rounded-2xl shadow-xl border border-slate-200/90 p-1.5 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        className="block px-3.5 py-2 text-xs font-medium text-slate-700 hover:text-primary hover:bg-blue-50/60 rounded-xl transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                {/* Clean Desktop Dropdown */}
+                {item.children && openDropdown === item.label && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48">
+                    <div className="bg-white rounded-2xl shadow-xl border border-slate-200/90 p-1.5 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          className="block px-3.5 py-2 text-xs font-medium text-slate-700 hover:text-primary hover:bg-blue-50/60 rounded-xl transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* Right CTA + Mobile Menu Button */}
         <div className="flex items-center gap-2">
+          {/* Career Button */}
+          <a
+            href="https://internship.nextsolves.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex"
+          >
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full px-3.5 text-xs font-semibold border-slate-200 text-slate-700 hover:text-primary hover:border-primary/40 hover:bg-blue-50/50 shadow-xs transition-all cursor-pointer"
+            >
+              <Briefcase className="w-3.5 h-3.5 mr-1.5 text-primary" />
+              <span>Career</span>
+            </Button>
+          </a>
+
           <Link href="/#contact" className="hidden sm:inline-flex">
             <Button
               variant="default"
@@ -151,52 +182,77 @@ export default function Navbar() {
             className="md:hidden fixed inset-x-3 top-20 bg-white/95 backdrop-blur-xl rounded-3xl border border-slate-200 p-5 shadow-2xl z-40 max-h-[80vh] overflow-y-auto"
           >
             <div className="space-y-1">
-            {navigation.map((item) => (
-              <div key={item.label} className="border-b border-slate-100 last:border-0 pb-2 mb-2">
-                {item.children ? (
-                  <div>
-                    <button
-                      onClick={() =>
-                        setOpenDropdown(openDropdown === item.label ? null : item.label)
-                      }
-                      className="flex items-center justify-between w-full px-3 py-2 text-sm font-semibold text-slate-900 rounded-xl hover:bg-slate-50 cursor-pointer"
+            {navigation.map((item) => {
+              const isExternal = item.href.startsWith('http');
+              return (
+                <div key={item.label} className="border-b border-slate-100 last:border-0 pb-2 mb-2">
+                  {isExternal ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileOpen(false)}
+                      className="flex items-center justify-between px-3 py-2 text-sm font-semibold text-slate-900 rounded-xl hover:bg-slate-50 cursor-pointer"
+                    >
+                      <span>{item.label}</span>
+                      <Briefcase className="w-4 h-4 text-primary" />
+                    </a>
+                  ) : item.children ? (
+                    <div>
+                      <button
+                        onClick={() =>
+                          setOpenDropdown(openDropdown === item.label ? null : item.label)
+                        }
+                        className="flex items-center justify-between w-full px-3 py-2 text-sm font-semibold text-slate-900 rounded-xl hover:bg-slate-50 cursor-pointer"
+                      >
+                        {item.label}
+                        <ChevronDown
+                          className={`w-4 h-4 text-slate-400 transition-transform ${
+                            openDropdown === item.label ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      {openDropdown === item.label && (
+                        <div className="pl-4 pt-1 space-y-1">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              onClick={() => setIsMobileOpen(false)}
+                              className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-primary rounded-lg"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileOpen(false)}
+                      className="block px-3 py-2 text-sm font-semibold text-slate-900 rounded-xl hover:bg-slate-50"
                     >
                       {item.label}
-                      <ChevronDown
-                        className={`w-4 h-4 text-slate-400 transition-transform ${
-                          openDropdown === item.label ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
-                    {openDropdown === item.label && (
-                      <div className="pl-4 pt-1 space-y-1">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            onClick={() => setIsMobileOpen(false)}
-                            className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-primary rounded-lg"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsMobileOpen(false)}
-                    className="block px-3 py-2 text-sm font-semibold text-slate-900 rounded-xl hover:bg-slate-50"
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            ))}
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
-          <div className="pt-3 relative z-20">
+          <div className="pt-3 space-y-2 relative z-20">
+            <a
+              href="https://internship.nextsolves.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileOpen(false)}
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full border border-slate-200 text-slate-700 hover:text-primary hover:bg-slate-50 text-sm font-semibold transition-colors"
+            >
+              <Briefcase className="w-4 h-4 text-primary" />
+              <span>Career & Internships</span>
+            </a>
+
             <Link
               href="/#contact"
               onClick={() => setIsMobileOpen(false)}

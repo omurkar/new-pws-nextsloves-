@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Headphones, ShieldCheck } from 'lucide-react';
 import { footerNavigation, contactInfo } from '@/data/navigation';
 import { FooterStickyReveal } from '@/components/ui/footer-sticky-reveal';
-import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
 export default function Footer() {
   return (
@@ -30,14 +29,30 @@ export default function Footer() {
 
 
               <div className="pt-2 space-y-2 text-xs sm:text-sm">
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="inline-flex items-center gap-2.5 text-slate-600 hover:text-primary transition-colors py-1"
-                >
-                  <Mail className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span className="break-all">{contactInfo.email}</span>
-                </a>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <a
+                    href="mailto:contact@nextsolves.in"
+                    className="inline-flex items-center gap-2 text-slate-600 hover:text-primary transition-colors py-0.5"
+                  >
+                    <Mail className="w-4 h-4 text-primary shrink-0" />
+                    <span><strong className="text-slate-800 font-medium">Contact:</strong> contact@nextsolves.in</span>
+                  </a>
+                  <a
+                    href="mailto:help@nextsolves.in"
+                    className="inline-flex items-center gap-2 text-slate-600 hover:text-primary transition-colors py-0.5"
+                  >
+                    <Headphones className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span><strong className="text-slate-800 font-medium">Support:</strong> help@nextsolves.in</span>
+                  </a>
+                  <a
+                    href="mailto:grievance@nextsolves.in"
+                    className="inline-flex items-center gap-2 text-slate-600 hover:text-primary transition-colors py-0.5"
+                  >
+                    <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span><strong className="text-slate-800 font-medium">Grievance:</strong> grievance@nextsolves.in</span>
+                  </a>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 pt-1">
                   {contactInfo.phone.map((p) => (
                     <a
                       key={p}
@@ -100,16 +115,33 @@ export default function Footer() {
                 Company
               </h4>
               <ul className="space-y-2 sm:space-y-2.5">
-                {footerNavigation.company.map((item) => (
-                  <li key={`${item.label}-${item.href}`}>
-                    <Link
-                      href={item.href}
-                      className="inline-block py-0.5 text-xs sm:text-sm text-slate-600 hover:text-primary transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {footerNavigation.company.map((item) => {
+                  const isExternal = item.href.startsWith('http');
+                  return (
+                    <li key={`${item.label}-${item.href}`}>
+                      {isExternal ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 py-0.5 text-xs sm:text-sm text-slate-600 hover:text-primary transition-colors group"
+                        >
+                          <span>{item.label}</span>
+                          <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-700 px-1.5 py-0.2 rounded border border-emerald-200">
+                            Hiring
+                          </span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="inline-block py-0.5 text-xs sm:text-sm text-slate-600 hover:text-primary transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
@@ -157,13 +189,6 @@ export default function Footer() {
             </p>
           </div>
         </div>
-
-        <ProgressiveBlur
-          position="bottom"
-          height="48px"
-          className="pointer-events-none bg-gradient-to-t from-slate-100/60 to-transparent hidden sm:block"
-          blurLevels={[0.5, 1, 2, 4, 8, 16]}
-        />
       </footer>
     </FooterStickyReveal>
   );

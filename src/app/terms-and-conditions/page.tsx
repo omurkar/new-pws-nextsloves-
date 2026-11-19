@@ -85,9 +85,11 @@ export default function TermsAndConditionsPage() {
                 In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:
               </p>
               <div className="space-y-1.5 text-xs text-slate-700">
-                <p className="font-bold text-slate-900">NextSolves</p>
+                <p className="font-bold text-slate-900">NextSolves Legal & Grievance Desk</p>
                 <p>{contactInfo.address}</p>
-                <p>Email: <a href={`mailto:${contactInfo.email}`} className="text-primary hover:underline">{contactInfo.email}</a></p>
+                <p>Grievance Officer: <a href="mailto:grievance@nextsolves.in" className="text-primary hover:underline">grievance@nextsolves.in</a></p>
+                <p>Support: <a href="mailto:help@nextsolves.in" className="text-primary hover:underline">help@nextsolves.in</a></p>
+                <p>General Inquiries: <a href="mailto:contact@nextsolves.in" className="text-primary hover:underline">contact@nextsolves.in</a></p>
                 <p>Phone: {contactInfo.phone.join(' / ')}</p>
               </div>
             </div>

@@ -169,12 +169,13 @@ export default function TestimonialsCarousel() {
           <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-7">
             {/* Principal Avatar Frame */}
             <div className="relative shrink-0">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden ring-4 ring-blue-50 border border-blue-200 shadow-sm relative bg-gradient-to-br from-blue-600 to-indigo-700">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden ring-4 ring-blue-50 border border-blue-200 shadow-sm relative bg-slate-100">
                 <Image
-                  src="/assets/team/dr-gd-giri.svg"
+                  src={principalTestimonial.image || '/assets/team/dr-gd-giri.jpg'}
                   alt="Dr. G.D. Giri — Principal"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 768px) 96px, 112px"
+                  className="object-cover object-top"
                 />
               </div>
               {/* Verified Institutional Crest Badge */}

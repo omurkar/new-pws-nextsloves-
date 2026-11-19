@@ -86,7 +86,9 @@ export default function PrivacyPolicyPage() {
               <div className="space-y-1.5 text-xs text-slate-700">
                 <p className="font-bold text-slate-900">NextSolves Data Protection Officer</p>
                 <p>{contactInfo.address}</p>
-                <p>Email: <a href={`mailto:${contactInfo.email}`} className="text-primary hover:underline">{contactInfo.email}</a></p>
+                <p>Grievance & DPO: <a href="mailto:grievance@nextsolves.in" className="text-primary hover:underline">grievance@nextsolves.in</a></p>
+                <p>Support: <a href="mailto:help@nextsolves.in" className="text-primary hover:underline">help@nextsolves.in</a></p>
+                <p>General Inquiries: <a href="mailto:contact@nextsolves.in" className="text-primary hover:underline">contact@nextsolves.in</a></p>
                 <p>Phone: {contactInfo.phone.join(' / ')}</p>
               </div>
             </div>

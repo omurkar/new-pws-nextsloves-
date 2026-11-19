@@ -11,6 +11,7 @@ export const navigation: NavItem[] = [
   { label: 'Calculator', href: '/#calculator' },
   { label: 'FAQ', href: '/#faq' },
   { label: 'About', href: '/about' },
+  { label: 'Career', href: 'https://internship.nextsolves.in' },
 ];
 
 export const footerNavigation = {
@@ -27,6 +28,7 @@ export const footerNavigation = {
   ],
   company: [
     { label: 'About NextSolves', href: '/about' },
+    { label: 'Career', href: 'https://internship.nextsolves.in' },
     { label: 'Campus Implementation', href: '/#implementation' },
     { label: 'Contact & Inquiry', href: '/#contact' },
   ],
@@ -42,7 +44,10 @@ export const footerNavigation = {
 };
 
 export const contactInfo = {
-  email: 'nextsolves@gmail.com',
+  email: 'contact@nextsolves.in',
+  contactEmail: 'contact@nextsolves.in',
+  supportEmail: 'help@nextsolves.in',
+  grievanceEmail: 'grievance@nextsolves.in',
   phone: ['+91 9136234409', '+91 9321632938'],
   address: 'Goregaon East, Mumbai, Maharashtra 400065, India',
 };
