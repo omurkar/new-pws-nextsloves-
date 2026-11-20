@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, ArrowRight, Briefcase } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { navigation } from '@/data/navigation';
 import { Button } from '@/components/ui/button';
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
@@ -129,23 +129,6 @@ export default function Navbar() {
 
         {/* Right CTA + Mobile Menu Button */}
         <div className="flex items-center gap-2">
-          {/* Career Button */}
-          <a
-            href="https://internship.nextsolves.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex"
-          >
-            <Button
-              variant="outline"
-              size="sm"
-              className="rounded-full px-3.5 text-xs font-semibold border-slate-200 text-slate-700 hover:text-primary hover:border-primary/40 hover:bg-blue-50/50 shadow-xs transition-all cursor-pointer"
-            >
-              <Briefcase className="w-3.5 h-3.5 mr-1.5 text-primary" />
-              <span>Career</span>
-            </Button>
-          </a>
-
           <Link href="/#contact" className="hidden sm:inline-flex">
             <Button
               variant="default"
@@ -192,10 +175,9 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setIsMobileOpen(false)}
-                      className="flex items-center justify-between px-3 py-2 text-sm font-semibold text-slate-900 rounded-xl hover:bg-slate-50 cursor-pointer"
+                      className="block px-3 py-2 text-sm font-semibold text-slate-900 rounded-xl hover:bg-slate-50 cursor-pointer"
                     >
-                      <span>{item.label}</span>
-                      <Briefcase className="w-4 h-4 text-primary" />
+                      {item.label}
                     </a>
                   ) : item.children ? (
                     <div>
@@ -241,18 +223,7 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="pt-3 space-y-2 relative z-20">
-            <a
-              href="https://internship.nextsolves.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMobileOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full border border-slate-200 text-slate-700 hover:text-primary hover:bg-slate-50 text-sm font-semibold transition-colors"
-            >
-              <Briefcase className="w-4 h-4 text-primary" />
-              <span>Career & Internships</span>
-            </a>
-
+          <div className="pt-3 relative z-20">
             <Link
               href="/#contact"
               onClick={() => setIsMobileOpen(false)}
