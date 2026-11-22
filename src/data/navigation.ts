@@ -51,3 +51,14 @@ export const contactInfo = {
   phone: ['+91 9136234409', '+91 9321632938'],
   address: 'Goregaon East, Mumbai, Maharashtra 400065, India',
 };
+
+export const socialLinks = [
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/nextsolves-edutech',
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/NextSolves',
+  },
+];

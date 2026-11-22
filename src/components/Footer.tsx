@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, MapPin, Headphones, ShieldCheck } from 'lucide-react';
+import { IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
 import { footerNavigation, contactInfo } from '@/data/navigation';
 import { FooterStickyReveal } from '@/components/ui/footer-sticky-reveal';
 
@@ -68,6 +69,30 @@ export default function Footer() {
                   <MapPin className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                   <span className="leading-snug">{contactInfo.address}</span>
                 </div>
+              </div>
+
+              {/* Social Buttons */}
+              <div className="flex items-center gap-2.5 pt-1">
+                <a
+                  href="https://www.linkedin.com/company/nextsolves-edutech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200/90 bg-white hover:bg-blue-50/70 hover:border-blue-300 text-slate-700 hover:text-[#0A66C2] text-xs font-semibold shadow-xs transition-all cursor-pointer group"
+                  aria-label="NextSolves LinkedIn"
+                >
+                  <IconBrandLinkedin className="w-4 h-4 text-[#0A66C2] group-hover:scale-110 transition-transform shrink-0" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://github.com/NextSolves"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200/90 bg-white hover:bg-slate-100 hover:border-slate-300 text-slate-700 hover:text-slate-900 text-xs font-semibold shadow-xs transition-all cursor-pointer group"
+                  aria-label="NextSolves GitHub"
+                >
+                  <IconBrandGithub className="w-4 h-4 text-slate-900 group-hover:scale-110 transition-transform shrink-0" />
+                  <span>GitHub</span>
+                </a>
               </div>
             </div>
 
@@ -182,11 +207,36 @@ export default function Footer() {
           </div>
 
           {/* Bottom Bar: Stacked & centered on mobile, inline on desktop */}
-          <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-slate-500">
-            <p>© {new Date().getFullYear()} NextSolves. All rights reserved.</p>
-            <p className="text-[11px] sm:text-xs text-slate-400">
-              Autonomous Examination & Institutional Workflow Infrastructure.
-            </p>
+          <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs text-slate-500">
+            <div>
+              <p>© {new Date().getFullYear()} NextSolves. All rights reserved.</p>
+              <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">
+                Autonomous Examination & Institutional Workflow Infrastructure.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com/company/nextsolves-edutech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-blue-50/70 hover:border-blue-200 text-slate-700 hover:text-[#0A66C2] text-xs font-semibold shadow-xs transition-all cursor-pointer group"
+                aria-label="NextSolves on LinkedIn"
+              >
+                <IconBrandLinkedin className="w-3.5 h-3.5 text-[#0A66C2] group-hover:scale-110 transition-transform" />
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/NextSolves"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-100 hover:border-slate-300 text-slate-700 hover:text-slate-900 text-xs font-semibold shadow-xs transition-all cursor-pointer group"
+                aria-label="NextSolves on GitHub"
+              >
+                <IconBrandGithub className="w-3.5 h-3.5 text-slate-900 group-hover:scale-110 transition-transform" />
+                <span>GitHub</span>
+              </a>
+            </div>
           </div>
         </div>
       </footer>
