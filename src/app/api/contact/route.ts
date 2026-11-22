@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const primaryRecipient = process.env.NOTIFICATION_EMAIL || 'career@nextsolves.in';
+    const primaryRecipient = process.env.NOTIFICATION_EMAIL || 'contact@nextsolves.in';
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
     const formattedDate = new Date().toLocaleString('en-IN', {
@@ -118,7 +118,7 @@ export async function POST(request: Request) {
       </html>
     `;
 
-    // 1. Send inquiry notification via Resend to primaryRecipient (career@nextsolves.in)
+    // 1. Send inquiry notification via Resend to primaryRecipient (contact@nextsolves.in)
     let sendResult = await resend.emails.send({
       from: fromEmail,
       to: primaryRecipient,
