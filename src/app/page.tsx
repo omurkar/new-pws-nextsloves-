@@ -181,27 +181,27 @@ export default function HomePage() {
               </div>
 
               {/* Accreditations Trust Strip — Single Row in Hero */}
-              <div className="pt-6 sm:pt-8 max-w-4xl mx-auto">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 text-center mb-3">
+              <div className="pt-8 sm:pt-10 max-w-5xl mx-auto">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 text-center mb-4">
                   Institutional Accreditations & National Recognitions
                 </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 items-center justify-center">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-5 items-center justify-center">
                   {accreditations.map((item) => (
                     <div
                       key={item.id}
-                      className="group bg-white/95 backdrop-blur-xs rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs hover:border-blue-200 transition-all p-2.5 sm:p-3 flex flex-col items-center justify-center text-center h-20 sm:h-24"
+                      className="group bg-white rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all p-3.5 sm:p-4 flex flex-col items-center justify-between text-center min-h-[125px] sm:min-h-[145px]"
                       title={item.name}
                     >
-                      <div className="relative h-9 sm:h-11 w-full flex items-center justify-center">
+                      <div className="relative h-16 sm:h-20 w-full flex items-center justify-center">
                         <Image
                           src={item.src}
                           alt={item.name}
-                          width={140}
-                          height={44}
-                          className="max-h-8 sm:max-h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                          width={200}
+                          height={80}
+                          className="max-h-14 sm:max-h-18 w-auto object-contain transition-transform group-hover:scale-105"
                         />
                       </div>
-                      <span className="text-[10px] font-bold text-slate-600 mt-1 line-clamp-1 group-hover:text-primary transition-colors">
+                      <span className="text-xs font-bold text-slate-700 mt-2 line-clamp-1 group-hover:text-primary transition-colors">
                         {item.tag}
                       </span>
                     </div>
@@ -434,13 +434,13 @@ export default function HomePage() {
                   className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between text-center"
                 >
                   <div className="flex flex-col items-center">
-                    <div className="h-16 w-full flex items-center justify-center p-2 mb-3 bg-slate-50/70 rounded-xl border border-slate-100">
+                    <div className="h-24 sm:h-28 w-full flex items-center justify-center p-3 mb-3 bg-slate-50/70 rounded-xl border border-slate-100">
                       <Image
                         src={item.src}
                         alt={item.name}
-                        width={140}
-                        height={48}
-                        className="max-h-12 w-auto object-contain"
+                        width={220}
+                        height={90}
+                        className="max-h-20 sm:max-h-24 w-auto object-contain"
                       />
                     </div>
                     <span className="inline-block text-[11px] font-bold text-primary bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200 mb-2">

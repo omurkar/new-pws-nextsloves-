@@ -28,15 +28,15 @@ export default function Footer() {
                 {accreditations.map((item) => (
                   <div
                     key={item.id}
-                    className="h-16 px-3.5 py-2 bg-white rounded-xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-shadow flex items-center justify-center"
+                    className="h-20 sm:h-24 px-4 sm:px-5 py-2.5 bg-white rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-shadow flex items-center justify-center"
                     title={`${item.name} — ${item.tag}`}
                   >
                     <Image
                       src={item.src}
                       alt={item.name}
-                      width={130}
-                      height={46}
-                      className="max-h-11 w-auto object-contain"
+                      width={200}
+                      height={80}
+                      className="max-h-16 sm:max-h-20 w-auto object-contain"
                     />
                   </div>
                 ))}
