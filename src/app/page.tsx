@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductMockup from '@/components/ProductMockup';
@@ -15,6 +16,7 @@ import { GridBackground } from '@/components/ui/grid-background';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { AnimatedCounter } from '@/components/Animations';
+import { accreditations } from '@/data/content';
 import {
   ArrowRight,
   ShieldCheck,
@@ -177,6 +179,35 @@ export default function HomePage() {
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Safe Exam Browser Enforced
                 </span>
               </div>
+
+              {/* Accreditations Trust Strip — Single Row in Hero */}
+              <div className="pt-6 sm:pt-8 max-w-4xl mx-auto">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 text-center mb-3">
+                  Institutional Accreditations & National Recognitions
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 items-center justify-center">
+                  {accreditations.map((item) => (
+                    <div
+                      key={item.id}
+                      className="group bg-white/95 backdrop-blur-xs rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs hover:border-blue-200 transition-all p-2.5 sm:p-3 flex flex-col items-center justify-center text-center h-20 sm:h-24"
+                      title={item.name}
+                    >
+                      <div className="relative h-9 sm:h-11 w-full flex items-center justify-center">
+                        <Image
+                          src={item.src}
+                          alt={item.name}
+                          width={140}
+                          height={44}
+                          className="max-h-8 sm:max-h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                        />
+                      </div>
+                      <span className="text-[10px] font-bold text-slate-600 mt-1 line-clamp-1 group-hover:text-primary transition-colors">
+                        {item.tag}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Central Product Showcase */}
@@ -261,10 +292,16 @@ export default function HomePage() {
         <section className="section-padding bg-slate-50/60 border-y border-slate-200/70 overflow-hidden scroll-mt-20" id="pipeline">
           <div className="container-custom max-w-5xl">
             <div className="max-w-2xl mx-auto text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                The PWS Solution
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 text-balance">
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  The PWS Solution
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                  Digital India Aligned
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1 text-balance">
                 The Streamlined Digital Pipeline
               </h2>
               <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-[65ch] mx-auto text-pretty">
@@ -324,10 +361,16 @@ export default function HomePage() {
         <section className="section-padding bg-slate-50/60 border-y border-slate-200/70 scroll-mt-20" id="roles">
           <div className="container-custom max-w-5xl">
             <div className="max-w-2xl mx-auto text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                Tailored Impact
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 text-balance">
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  Tailored Impact
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                  <GraduationCap className="w-3.5 h-3.5 text-amber-600" />
+                  National Career Service Aligned
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1 text-balance">
                 Experience by Campus Role
               </h2>
               <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-[65ch] mx-auto text-pretty">
@@ -368,15 +411,70 @@ export default function HomePage() {
         </section>
 
         {/* ============================================================ */}
+        {/* MIDDLE SECTION — ACCREDITATIONS & NATIONAL INITIATIVES */}
+        {/* ============================================================ */}
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-white via-blue-50/25 to-white border-b border-slate-200/80">
+          <div className="container-custom max-w-5xl">
+            <div className="max-w-2xl mx-auto text-center mb-10">
+              <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+                Institutional Accreditations & Standards
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 text-balance">
+                National Compliance & Quality Assurance
+              </h2>
+              <p className="text-sm text-slate-600 mt-2 max-w-[65ch] mx-auto text-pretty">
+                NextSolves complies with institutional quality management standards, indigenous MSME governance, and national paperless education initiatives.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {accreditations.map((item) => (
+                <div
+                  key={item.id}
+                  className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between text-center"
+                >
+                  <div className="flex flex-col items-center">
+                    <div className="h-16 w-full flex items-center justify-center p-2 mb-3 bg-slate-50/70 rounded-xl border border-slate-100">
+                      <Image
+                        src={item.src}
+                        alt={item.name}
+                        width={140}
+                        height={48}
+                        className="max-h-12 w-auto object-contain"
+                      />
+                    </div>
+                    <span className="inline-block text-[11px] font-bold text-primary bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200 mb-2">
+                      {item.tag}
+                    </span>
+                    <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                      {item.name}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
         {/* SECTION 7 — SECURITY ARCHITECTURE */}
         {/* ============================================================ */}
         <section className="section-padding bg-white scroll-mt-20" id="security">
           <div className="container-custom max-w-5xl">
             <div className="max-w-2xl mx-auto text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                Security by Design
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 text-balance">
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  Security by Design
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+                  ISO 9001:2015 Certified Company
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1 text-balance">
                 Enterprise Multi-Tenant Exam Security
               </h2>
               <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-[65ch] mx-auto text-pretty">
@@ -410,10 +508,16 @@ export default function HomePage() {
         <section className="section-padding bg-slate-50/60 border-y border-slate-200/70 scroll-mt-20" id="comparison">
           <div className="container-custom max-w-5xl">
             <div className="max-w-2xl mx-auto text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                Side-by-Side Analysis
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 text-balance">
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  Side-by-Side Analysis
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
+                  <Building2 className="w-3.5 h-3.5 text-purple-600" />
+                  Ministry of MSME, Govt. of India
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1 text-balance">
                 Traditional Manual Setup vs. NextSolves PWS
               </h2>
               <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-[65ch] mx-auto text-pretty">

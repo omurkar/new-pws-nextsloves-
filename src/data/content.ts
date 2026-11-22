@@ -131,3 +131,42 @@ export const securityFeatures = [
     icon: 'Lock',
   },
 ];
+
+export interface Accreditation {
+  id: string;
+  name: string;
+  src: string;
+  tag: string;
+  description: string;
+}
+
+export const accreditations: Accreditation[] = [
+  {
+    id: 'iso',
+    name: 'ISO 9001:2015 Certified Company',
+    src: '/assets/accreditations/iso-certified.jpg',
+    tag: 'ISO 9001:2015 Certified',
+    description: 'Quality Management & Institutional Security Standards',
+  },
+  {
+    id: 'msme',
+    name: 'Ministry of MSME, Govt. of India',
+    src: '/assets/accreditations/msme-india.jpg',
+    tag: 'Ministry of MSME Registered',
+    description: 'Registered Enterprise under Ministry of MSME, Govt. of India',
+  },
+  {
+    id: 'digital-india',
+    name: 'Digital India',
+    src: '/assets/accreditations/digital-india.png',
+    tag: 'Digital India Aligned',
+    description: 'Empowering Higher Education with 100% Zero-Paper Examination Systems',
+  },
+  {
+    id: 'ncs',
+    name: 'National Career Service',
+    src: '/assets/accreditations/national-career-service.png',
+    tag: 'National Career Service Aligned',
+    description: 'National Career Service, Ministry of Labour & Employment Aligned',
+  },
+];

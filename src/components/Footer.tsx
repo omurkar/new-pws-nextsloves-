@@ -4,12 +4,46 @@ import { Mail, Phone, MapPin, Headphones, ShieldCheck } from 'lucide-react';
 import { IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
 import { footerNavigation, contactInfo } from '@/data/navigation';
 import { FooterStickyReveal } from '@/components/ui/footer-sticky-reveal';
+import { accreditations } from '@/data/content';
 
 export default function Footer() {
   return (
     <FooterStickyReveal className="mt-14 sm:mt-20 lg:mt-28">
       <footer className="relative bg-slate-50 border-t border-slate-200/80 text-slate-700 overflow-hidden">
         <div className="container-custom py-10 sm:py-16 lg:py-20 px-4 sm:px-6">
+          {/* Top Accreditation & Government Recognition Single Row */}
+          <div className="mb-10 sm:mb-14 pb-8 sm:pb-10 border-b border-slate-200/80">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-200 inline-block mb-1.5">
+                  Institutional Accreditations & Recognitions
+                </span>
+                <p className="text-xs text-slate-500 max-w-md">
+                  Certified quality management, indigenous MSME governance, and paperless Digital India aligned workflows.
+                </p>
+              </div>
+
+              {/* Single row of 4 accreditation images */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 items-center">
+                {accreditations.map((item) => (
+                  <div
+                    key={item.id}
+                    className="h-16 px-3.5 py-2 bg-white rounded-xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-shadow flex items-center justify-center"
+                    title={`${item.name} — ${item.tag}`}
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.name}
+                      width={130}
+                      height={46}
+                      className="max-h-11 w-auto object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Main Layout: 2 columns on mobile, 4 on tablet, 6 on desktop */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-6 sm:gap-x-8 gap-y-10 lg:gap-8">
             {/* Brand Column (Full width on mobile & tablet, 2 cols on desktop) */}
