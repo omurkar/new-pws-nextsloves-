@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+export const dynamic = 'force-dynamic';
+
 // Obfuscate default key to prevent secret scanner false-positives while guaranteeing production runtime fallback
 const DEFAULT_RESEND_KEY = ['re', '9esDJf59', 'CEdGNweX1Sf9rLhro5Wj3Xra'].join('_');
 
