@@ -55,10 +55,15 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      let data: any = {};
+      try {
+        data = await res.json();
+      } catch {
+        // Fallback if response is non-JSON
+      }
 
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit demo request.');
+        throw new Error(data?.error || `Server responded with status ${res.status}. Please try again.`);
       }
 
       setStatus('success');
